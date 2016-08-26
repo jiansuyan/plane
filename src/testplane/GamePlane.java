@@ -1,5 +1,8 @@
 package testplane;
 
-public class GamePlane {
+import util.*;
 
+public class GamePlane extends MyFrame {
+	
+	
 }
