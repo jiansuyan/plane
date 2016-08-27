@@ -2,6 +2,7 @@ package testplane;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 import util.Constant;
 
@@ -16,6 +17,10 @@ public class Bullet {
 		degree = Math.random()*Math.PI*2;
 		x = Constant.GAME_HEIGHT / 2;
 		y = Constant.GAME_WIDTH / 2;
+	}
+	
+	public Rectangle getRect(){
+		return new Rectangle((int)x, (int)y, width, height);
 	}
 	
 	public void draw(Graphics g){

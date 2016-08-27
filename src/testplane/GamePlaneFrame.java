@@ -20,6 +20,10 @@ public class GamePlaneFrame extends MyFrame {
 		for(int i = 0; i < bulletlist.size(); i++){
 			Bullet b = (Bullet) bulletlist.get(i);
 			b.draw(g);
+			
+			//检测与 飞机的碰撞
+			boolean peng = b.getRect().intersects(p.getRect());
+			System.out.println("pengpeng");
 		}
 	}
 	
@@ -45,14 +49,25 @@ public class GamePlaneFrame extends MyFrame {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			System.out.println("Press: " + e.getKeyCode());
+		//	System.out.println("Press: " + e.getKeyCode());
 			p.addDirection(e);
 		}
 
 		@Override
 		public void keyReleased(KeyEvent e) {
-			System.out.println("Release: " + e.getKeyCode());
+		//	System.out.println("Release: " + e.getKeyCode());
 			p.minusDirection(e);
 		}
 	}
+	
+/*	private Image offScreenImage = null; //利用双缓冲技术解决屏幕闪烁
+	public void update(Graphics g){
+		if(offScreenImage == null)
+			offScreenImage = this.createImage(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
+		
+		Graphics gOff = offScreenImage.getGraphics();
+		
+		paint(gOff);
+		g.drawImage(offScreenImage, 0, 0, null);   
+	}  */
 }
