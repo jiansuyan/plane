@@ -7,18 +7,10 @@ import java.awt.event.KeyEvent;
 
 import util.*;
 
-public class Plane {
+public class Plane extends GameObject {
 //	Image planeImg = GameUtil.getImage("images/plane_01.jpg");
-	Image img;
-	double x,y;
-	boolean left, right, up, down;
-	int speed = 10;
-	int width, height;
 	
-	public Rectangle getRect(){
-		Rectangle r = new Rectangle((int)x, (int)y, width, height);
-		return r;
-	}
+	boolean left, right, up, down;
 	
 	public void draw(Graphics g){
 		g.drawImage(img, (int)x, (int)y, null);

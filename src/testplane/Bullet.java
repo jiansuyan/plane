@@ -6,23 +6,16 @@ import java.awt.Rectangle;
 
 import util.Constant;
 
-public class Bullet {
-	double x, y;
-	int speed = 10;
+public class Bullet extends GameObject{
+
 	double degree;
-	int width = 10;
-	int height = 10;
+
 	
 	public Bullet(){
 		degree = Math.random()*Math.PI*2;
 		x = Constant.GAME_HEIGHT / 2;
 		y = Constant.GAME_WIDTH / 2;
-	}
-	
-	public Rectangle getRect(){
-		return new Rectangle((int)x, (int)y, width, height);
-	}
-	
+	}	
 	public void draw(Graphics g){
 		Color c = g.getColor();
 		g.setColor(Color.yellow);
