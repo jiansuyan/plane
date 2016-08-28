@@ -10,11 +10,16 @@ import util.*;
 public class Plane extends GameObject {
 //	Image planeImg = GameUtil.getImage("images/plane_01.jpg");
 	
-	boolean left, right, up, down;
+	private boolean left, right, up, down;
+	
+	private boolean live = true;
 	
 	public void draw(Graphics g){
-		g.drawImage(img, (int)x, (int)y, null);
-		move();
+		if(live){
+			g.drawImage(img, (int)x, (int)y, null);
+			move();
+		}
+		
 	}
 	
 	public void move(){
@@ -81,6 +86,14 @@ public class Plane extends GameObject {
 	
 	public Plane(){
 		
+	}
+
+	public boolean isLive() {
+		return live;
+	}
+
+	public void setLive(boolean live) {
+		this.live = live;
 	}
 	
 	

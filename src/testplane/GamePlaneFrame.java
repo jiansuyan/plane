@@ -1,5 +1,7 @@
 package testplane;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
@@ -23,8 +25,24 @@ public class GamePlaneFrame extends MyFrame {
 			
 			//检测与 飞机的碰撞
 			boolean peng = b.getRect().intersects(p.getRect());
-			System.out.println("pengpeng");
+			if(peng){
+				p.setLive(false); 
+				
+			}
+			
 		}
+		if(!p.isLive()){
+			printGameOver(g, "Game Over", 50);
+		}
+	}
+	
+	public void printGameOver(Graphics g, String str, int size){
+		Color c = g.getColor();
+		g.setColor(Color.white);
+		Font f = new Font("宋体", Font.BOLD, size);
+		g.setFont(f);
+		g.drawString(str,100, 200);
+		g.setColor(c);
 	}
 	
 	public static void main(String[] args){
